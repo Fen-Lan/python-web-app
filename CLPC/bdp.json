@@ -1,0 +1,232 @@
+[
+  {
+    "controls": [
+      {
+        "name": "返回账号登录",
+        "iframes": [],
+        "xpath": "//img[@class='qr-tips']"
+      },
+      {
+        "name": "账号",
+        "iframes": [],
+        "xpath": "//input[@id='userCode']"
+      },
+      {
+        "name": "密码",
+        "iframes": [],
+        "xpath": "//input[@id='passWord']"
+      },
+      {
+        "name": "验证码",
+        "iframes": [],
+        "xpath": "//input[@id='verCode']"
+      },
+      {
+        "name": "登录",
+        "iframes": [],
+        "xpath": "//div//div//form//div"
+      },
+      {
+        "name": "清单名称",
+        "iframes": [],
+        "xpath": "//div[@class='text_omil el-col el-col-15'][contains(text(),'$')]"
+      }
+    ],
+    "groupName": "登录"
+  },
+  {
+    "controls": [
+      {
+        "name": "BAS",
+        "iframes": [],
+        "xpath": "//span[text()='业']"
+      },
+      {
+        "name": "FAS",
+        "iframes": [],
+        "xpath": "//span[text()='财']"
+      },
+      {
+        "name": "今天隐藏",
+        "iframes": [],
+        "xpath": "//a[text()='今天隐藏']"
+      },
+      {
+        "name": "车险超多维",
+        "iframes": [],
+        "xpath": "//p[contains(text(),'车险超多维')]"
+      }
+    ],
+    "groupName": "数据分析平台"
+  },
+  {
+    "controls": [
+      {
+        "iframes": "",
+        "name": "设置",
+        "xpath": "//i[@class='bdp-icon ico-setting']"
+      },
+      {
+        "iframes": "",
+        "name": "离线任务",
+        "xpath": "//span[text()='离线任务']"
+      },
+      {
+        "iframes": "",
+        "name": "仪表盘",
+        "xpath": "//div[contains(text(),'仪表盘')]"
+      },
+      {
+        "iframes": "",
+        "name": "工作表",
+        "xpath": "//div[contains(text(),'工作表')]"
+      },
+      {
+        "iframes": "",
+        "name": "仪表盘文件目录",
+        "xpath": "//a[@class='nowrap project-name']/span[text()='$']"
+      },
+      {
+        "iframes": "",
+        "name": "仪表盘文件目录-折叠状态",
+        "xpath": "//a[@class='nowrap project-name']/span[text()='$']//ancestor::div[contains(@class, 'cat-op-parent')]/i"
+      },
+      {
+        "iframes": "",
+        "name": "仪表板页面",
+        "xpath": "//a[@class='nowrap dash-name']/span[contains(text(),'$')]"
+      },
+      {
+        "iframes": "",
+        "name": "全局筛选下拉",
+        "xpath": "//p[@class='filter-i-name']/span[@title='$']//parent::p//i[@class='bdp-icon ico-triangle-down arrow-down']"
+      },
+      {
+        "iframes": "",
+        "name": "全局下拉选项",
+        "xpath": "//div[@class='filter-i-list J_globle_filter_layer']//a[@title='$']"
+      },
+      {
+        "iframes": "",
+        "name": "搜索仪表盘",
+        "xpath": "//i[@class='bdp-icon ico-search']"
+      },
+      {
+        "iframes": "",
+        "name": "搜索输入",
+        "xpath": "//input[@placeholder='输入名称搜索']"
+      },
+      {
+        "iframes": "",
+        "name": "弹窗确定",
+        "xpath": "//button[contains(text(),'确定')]"
+      },
+      {
+        "iframes": "",
+        "name": "弹窗取消",
+        "xpath": "//button[contains(text(),'取消')]"
+      },
+      {
+        "iframes": "",
+        "name": "加载中",
+        "xpath": "//div[@class='base-loading-layer']"
+      }
+    ],
+    "groupName": "BDP"
+  },
+  {
+    "controls": [
+      {
+        "iframes": "",
+        "name": "标题",
+        "xpath": "//div[@data-chart-title='$']"
+      },
+      {
+        "iframes": "",
+        "name": "更多",
+        "xpath": "//div[@data-chart-title='$']//ancestor::div[contains(@class, 'chart-box')]//i[@title='更多']"
+      },
+      {
+        "iframes": "",
+        "name": "更新",
+        "xpath": "//div[@data-chart-title='$']//ancestor::div[contains(@class, 'chart-box')]//i[@class='bdp-icon ico-refresh']"
+      },
+      {
+        "iframes": "",
+        "name": "编辑",
+        "xpath": "//div[@data-chart-title='$']//ancestor::div[contains(@class, 'chart-box')]//i[@class='bdp-icon ico-edit']"
+      },
+      {
+        "iframes": "",
+        "name": "筛选",
+        "xpath": "//div[@data-chart-title='$']//ancestor::div[contains(@class, 'chart-box')]//i[@class='bdp-icon ico-filter']"
+      },
+      {
+        "iframes": "",
+        "name": "导出Excel",
+        "xpath": "//div[@data-chart-title='$']//ancestor::div[contains(@class, 'chart-box')]//div[contains(@class, 'chart-operate-more')]/ul/li[text()='导出Excel'][@class='dropdown-item ng-scope']"
+      },
+      {
+        "iframes": "",
+        "name": "表内筛选下拉",
+        "xpath": "//div[@data-chart-title='$']//ancestor::div[contains(@class, 'chart-box')]//p[@class='filter-i-name ng-scope']/span[@title='$']//parent::p//i[@class='bdp-icon ico-triangle-down arrow-down']"
+      },
+      {
+        "iframes": "",
+        "name": "表内下拉选项",
+        "xpath": "//div[@data-chart-title='$']//ancestor::div[contains(@class, 'chart-box')]//div[@class='filter-i-list']//a[text()='$']"
+      },
+      {
+        "iframes": "",
+        "name": "报表加载",
+        "xpath": "//div[@data-chart-title='$']//ancestor::div[contains(@class, 'chart-box')]//div[@class='loading-wrap']"
+      }
+    ],
+    "groupName": "看板"
+  },
+  {
+    "controls": [
+      {
+        "iframes": "",
+        "name": "开始日期",
+        "xpath": "//input[@ng-model='start']"
+      },
+      {
+        "iframes": "",
+        "name": "结束日期",
+        "xpath": "//input[@ng-model='end']"
+      }
+    ],
+    "groupName": "日期范围"
+  },
+  {
+    "controls": [
+      {
+        "iframes": "",
+        "name": "筛选器筛选输入",
+        "xpath": "//div[@class='CodeMirror-scroll']"
+      },
+      {
+        "iframes": "",
+        "name": "勾选表达式",
+        "xpath": "//input[@value='expression']"
+      },
+      {
+        "iframes": "",
+        "name": "编辑筛选器",
+        "xpath": "//span[@class='tag']/span[text()='$']//ancestor::div/span/i[@class='bdp-icon ico-config']"
+      },
+      {
+        "iframes": "",
+        "name": "返回",
+        "xpath": "//i[@class='bdp-icon ico-back']"
+      },
+      {
+        "iframes": "",
+        "name": "筛选验证通过",
+        "xpath": "//div[@class='errTips ng-binding']"
+      }
+    ],
+    "groupName": "编辑页"
+  }
+]

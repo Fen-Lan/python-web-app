@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinpoint链接分析工具</title>
+    <style>
+        /* 原有样式保持不变，新增加载相关样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", Arial, sans-serif;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .input-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        form {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            background-color: #f9fafb;
+        }
+        
+        .stats-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            display: none; /* 初始隐藏，有数据后显示 */
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 20px 0;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .api-stats-table-container {
+            transition: all 0.3s ease;
+        }
+        
+        .api-stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .api-stats-table th, .api-stats-table td {
+            padding: 10px;
+            text-align: left;
+            max-width: 200px; /* 限制单元格宽度 */
+            white-space: nowrap; /* 防止换行 */
+            overflow: hidden; /* 隐藏超出部分 */
+            text-overflow: ellipsis; /* 显示省略号 */
+            cursor: pointer; /* 添加鼠标指针样式 */
+        }
+        
+        .api-stats-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .api-stats-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .expanded {
+            white-space: normal; /* 允许换行 */
+            overflow: visible; /* 显示完整内容 */
+        }
+
+        /* 排序样式 */
+        .sortable {
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .sort-indicator {
+            font-size: 12px;
+            margin-left: 5px;
+            opacity: 0.6;
+        }
+
+        .sortable:hover .sort-indicator {
+            opacity: 1;
+            background-color: #eee;
+        }
+
+        .sortable.active .sort-indicator {
+            opacity: 1;
+            font-weight: bold;
+        }
+        
+        .clickable {
+            cursor: pointer;
+        }
+        .clickable.expanded {
+            background-color: #f0f8ff;
+        }
+
+        .category-filter {
+            cursor: pointer;
+            color: #3498db;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .category-filter:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .category-filter:hover {
+            color: #2980b9;
+        }
+        
+        .filter-controls {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0;
+        }
+        
+        .filter-group label {
+            font-size: 14px;
+            color: #374151;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        
+        /* 核心：电源开关/卡槽式开关样式 */
+        #sql-bindvalue-switch,
+        #http-param-switch {
+            /* 隐藏原生复选框 */
+            appearance: none;
+            -webkit-appearance: none;
+            position: relative;
+            width: 50px;
+            height: 26px;
+            border-radius: 13px;
+            background-color: #d1d5db; /* 关闭状态背景 */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            outline: none;
+            border: none;
+        }
+        /* 开关滑块（卡槽按钮） */
+        #sql-bindvalue-switch::after,
+        #http-param-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background-color: #ffffff; /* 滑块白色 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        /* 开启状态：背景变色+滑块右移 */
+        #sql-bindvalue-switch:checked,
+        #http-param-switch:checked {
+            background-color: #10b981; /* 开启状态绿色（可自定义） */
+        }
+        #sql-bindvalue-switch:checked::after,
+        #http-param-switch:checked::after {
+            transform: translateX(24px); /* 滑块移动到右侧 */
+        }
+        /* hover状态优化 */
+        #sql-bindvalue-switch:hover:not(:checked),
+        #http-param-switch:hover:not(:checked) {
+            background-color: #b7bdc7;
+        }
+        /* Method输入框样式优化（配合开关，可选） */
+        #method-filter {
+            padding: 6px 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            outline: none;
+            font-size: 14px;
+            width: 200px;
+        }
+        #method-filter:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+        }
+
+        .filter-group input {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .filter-actions {
+            margin-top: 15px;
+        }
+
+        .filter-actions button {
+            margin-right: 10px;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        .apply-filter,.clear-filter {
+            padding: 6px 16px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-right: 10px;
+        }
+        .apply-filter {
+            background-color: #2563eb;
+            color: white;
+        }
+        .apply-filter:hover {
+            background-color: #1d4ed8;
+        }
+        
+        .filter-errors {
+            background-color: #ff9800;
+        }
+        
+        .filter-errors:hover {
+            background-color: #f57c00;
+        }
+
+        .filter-errors.active {
+            background-color: #e65100;
+            font-weight: bold;
+        }
+        .clear-filter {
+            background-color: #f3f4f6;
+            color: #374151;
+        }
+        .clear-filter:hover {
+            background-color: #e5e7eb;
+        }
+        
+        .filter-info {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .url-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            resize: none; /* 禁用调整大小 */
+            min-height: 50px; /* 最小高度 */
+            white-space: pre-wrap; /* 允许自动换行 */
+            word-wrap: break-word; /* 长单词和 URL 自动换行 */
+        }
+        
+        input[type="url"], input[type="file"] {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* 新增按钮禁用样式，让用户明确感知不可点击 */
+        button:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .tree-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+        
+        .call-class {
+            background-color: #e3f2fd;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        .method-name {
+            background-color: #e8f5e8;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        .gap-time {
+            background-color: #fff3e0;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        .exec-time {
+            background-color: #fffde7;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        .self-time {
+            background-color: #f3e5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        .tree-node-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin: 3px 0;
+        }
+        
+        .level-indicator {
+            display: inline-block;
+            width: 20px;
+            text-align: left;
+            flex-shrink: 0;
+        }
+        
+        .tree-node {
+            padding: 8px 12px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-left: 3px solid #3498db;
+            font-size: 14px;
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .tree-node:hover {
+            background-color: #e9ecef;
+        }
+        
+        /* 优化模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow: auto;
+        }
+        
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 2rem;
+            border: none;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 900px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(0);
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .modal-header h2 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.2s;
+        }
+
+        .close-btn:hover {
+            background-color: #f3f4f6;
+            color: #111827;
+        }
+        
+        .modal-body {
+            margin: 0;
+            line-height: 1.8;
+        }
+        
+        .details-list {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .details-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .details-field {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 200px;
+            margin-bottom: 1rem;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .field-value {
+            font-size: 0.95rem;
+            color: #111827;
+            padding: 0.5rem;
+            background-color: #f9fafb;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+            min-height: 2.5rem;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .field-value.empty {
+            color: #9ca3af;
+            font-style: italic;
+        }
+        
+        .details-boxes {
+            margin-top: 1.5rem;
+        }
+        
+        .details-box {
+            border: 1px solid #e5e7eb;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            background-color: #f9fafb;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .details-box:hover {
+            background-color: #f3f4f6;
+            border-color: #d1d5db;
+            transform: translateY(-2px);
+        }
+
+        .details-box h4 {
+            margin: 0 0 1rem 0;
+            color: #2563eb;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .detail-row {
+            display: flex;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+        
+        .detail-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .detail-key {
+            font-weight: 600;
+            color: #4b5563;
+            min-width: 120px;
+            font-size: 0.875rem;
+        }
+        
+        .detail-value {
+            flex: 1;
+            color: #111827;
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+
+        .detail-value.error {
+            color: #dc2626;
+            font-weight: 500;
+        }
+
+        .detail-total {
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+        
+        .error-message {
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            display: none;
+            font-weight: 500;
+            background-color: #fee2e2;
+            color: #b91c1c;
+            border: 1px solid #fecaca;
+        }
+
+        .view-details-btn {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            transition: background-color 0.2s;
+        }
+        
+        .view-details-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .filter-controls {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+            
+            .modal-content {
+                margin: 10% auto;
+                padding: 1.5rem;
+                width: 95%;
+            }
+            
+            .details-field {
+                flex: 1 1 100%;
+            }
+        }
+
+        /* 新增：加载状态样式 */
+        .loading-container {
+            text-align: center;
+            padding: 20px;
+            color: #3498db;
+            font-size: 16px;
+        }
+        
+        .loading-spinner {
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .progress-info {
+            margin: 10px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .complete-notification {
+            background-color: #d1fae5;
+            color: #065f46;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-align: center;
+            margin: 10px 0;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>pinpoint链接分析工具</h1>
+        
+        <div class="input-section">
+            <button id="parse-url-btn" class="hidden"></button>
+            
+            <!-- 表单部分 -->
+            <div class="input-section">
+                <h2>解析链接</h2>
+                <form id="parse-link-form">
+                    <label for="url">URL:</label>
+                    <input type="url" id="url" name="url" required>
+                    <button type="submit" id="parse-submit-btn">解析</button>
+                </form>
+            </div>
+            
+            <div class="error-message" id="error-message"></div>
+        </div>
+
+        <div class="filter-section" id="filter-section">
+            <h2>筛选条件</h2>
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label for="method-filter">Method查询</label>
+                    <input type="text" id="method-filter" placeholder="输入Method名称">
+                </div>
+                <div class="filter-group">
+                    <label for="argument-filter">Argument查询</label>
+                    <input type="text" id="argument-filter" placeholder="输入Argument内容">
+                </div>
+                <div class="filter-group">
+                    <label for="sql-bindvalue-switch">SQL-BindValue开关</label>
+                    <input type="checkbox" id="sql-bindvalue-switch">
+                </div>
+                <div class="filter-group">
+                    <label for="http-param-switch">http.param开关</label>
+                    <input type="checkbox" id="http-param-switch">
+                </div>
+            </div>
+            <div class="filter-actions">
+                <button id="apply-filter-btn" class="apply-filter">筛选</button>
+                <button id="clear-filter-btn" class="clear-filter">清除筛选</button>
+            </div>
+            <div class="filter-info" id="filter-info">
+                筛选将应用于所有节点
+            </div>
+        </div>
+
+        <!-- 表格显示部分 - 新增加载容器 -->
+        <div class="stats-section" id="stats_section">
+            <h2>解析结果</h2>
+            <!-- 加载状态容器 -->
+            <div id="loading-container" class="loading-container" style="display: none;">
+                <div class="loading-spinner"></div>
+                <div>正在解析数据，请稍候...</div>
+                <div class="progress-info" id="progress-info">已加载 0 / 0 条数据</div>
+            </div>
+            <!-- 完成提示容器 -->
+            <div id="complete-notification" class="complete-notification" style="display: none;">
+                ✅ 数据解析完成！共加载 <span id="total-count">0</span> 条数据
+            </div>
+            <table class="api-stats-table" id="api-stats-table">
+                <thead>
+                    <tr>
+                        <th>Argument</th>
+                        <th>Method</th>
+                        <th>Agent ID</th>
+                        <th class="sortable" data-sort-key="count">计数 <span class="sort-indicator">↑</span></th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="api-stats-tbody">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 详情模态框 -->
+        <div class="modal" id="details-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>详细信息</h2>
+                    <button id="close-modal-btn" class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="details-section">
+                        <div class="details-field">
+                            <span class="field-label">Argument:</span>
+                            <span class="field-value" id="argument-value"></span>
+                        </div>
+                        <div class="details-field">
+                            <span class="field-label">Method:</span>
+                            <span class="field-value" id="method-value"></span>
+                        </div>
+                        <div class="details-field">
+                            <span class="field-label">Agent唯一标识:</span>
+                            <span class="field-value" id="agent-id-value"></span>
+                        </div>
+                        <div class="details-field">
+                            <span class="field-label">Transaction ID:</span>
+                            <span class="field-value" id="transaction-id-value"></span>
+                        </div>
+                        <div class="details-field">
+                            <span class="field-label">调用次数:</span>
+                            <span class="field-value" id="count-value"></span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="detail-total">明细数据（共<span id="detail-total">0</span>条）</h3>
+                    <div id="details-boxes" class="details-boxes"></div>
+                </div>
+            </div>
+        </div>
+
+    </div> 
+
+    <script>
+        // 全局变量保存当前解析的原始数据（用于筛选）
+        let originalParsedData = [];
+        let apiChart = null;
+        let apiStats = {};
+        let selectedCategory = null;
+        let filterErrorsOnly = false;
+        let sortDirection = 1; // 1升序，-1降序，全局统一排序方向
+        let isParsing = false; // 标记是否正在解析，实现请求互斥
+        let abortController = null; // 取消控制器，主动终止上一次请求
+        // 新增：分批渲染相关配置
+        const BATCH_SIZE = 10; // 每批渲染10条数据
+        const RENDER_INTERVAL = 50; // 每批渲染间隔（毫秒），越小越快
+
+        document.addEventListener('DOMContentLoaded', function() { 
+            // 获取筛选条件元素
+            const methodFilterInput = document.getElementById('method-filter');
+            const argumentFilterInput = document.getElementById('argument-filter');
+            const sqlBindvalueSwitch = document.getElementById('sql-bindvalue-switch');
+            const httpParamSwitch = document.getElementById('http-param-switch');
+
+            // 应用筛选按钮点击事件
+            document.getElementById('apply-filter-btn').addEventListener('click', function() {
+                applyFilters();
+            });
+
+            // 清除筛选按钮点击事件
+            document.getElementById('clear-filter-btn').addEventListener('click', function() {
+                clearFilters();
+            });
+
+            // Method模糊查询-输入实时筛选
+            methodFilterInput.addEventListener('input', function() {
+                applyFilters();
+            });
+
+            //Argument模糊查询-输入实时筛选（与Method逻辑一致）
+            argumentFilterInput.addEventListener('input', function() {
+                applyFilters();
+            });
+
+            // SQL-BindValue开关-切换实时筛选
+            sqlBindvalueSwitch.addEventListener('change', function() {
+                applyFilters();
+            });
+
+            // http.param开关-切换实时筛选
+            httpParamSwitch.addEventListener('change', function() {
+                applyFilters();
+            });
+
+            /**
+             * 核心筛选方法：实现多条件联动筛选
+             * 1. Method模糊查询（包含匹配）
+             * 2. SQL-BindValue开关（勾选则仅显示该Method）
+             * 3. http.param开关（勾选则仅显示该Method）
+             * 4. 多开关勾选时：取并集（SQL-BindValue + http.param）
+             */
+            function applyFilters() {
+                // 获取当前筛选条件
+                const methodFilter = methodFilterInput.value.trim().toLowerCase();
+                const argumentFilter = argumentFilterInput.value.trim().toLowerCase();
+                const isSqlBindvalueEnabled = sqlBindvalueSwitch.checked;
+                const isHttpParamEnabled = httpParamSwitch.checked;
+
+                // 过滤原始数据
+                const filteredData = originalParsedData.filter(item => {
+                    const itemMethod = (item.method_name || '').toLowerCase();
+                    const itemArgument = (item.params || '').toLowerCase();
+                    let switchMatch = true; // 开关匹配标识
+
+                    // 处理开关筛选：至少一个开关勾选时，仅匹配勾选的Method
+                    if (isSqlBindvalueEnabled || isHttpParamEnabled) {
+                        switchMatch = (isSqlBindvalueEnabled && itemMethod === 'sql-bindvalue') || 
+                                    (isHttpParamEnabled && itemMethod === 'http.param');
+                    }
+
+                    // 处理模糊查询：有输入时包含匹配，无输入则通过
+                    const fuzzyMatch = methodFilter ? itemMethod.includes(methodFilter) : true;
+                    const argumentFuzzyMatch = argumentFilter ? itemArgument.includes(argumentFilter) : true;
+
+                    // 所有条件都满足才保留
+                    return switchMatch && fuzzyMatch && argumentFuzzyMatch;
+                });
+
+                // 渲染筛选后的表格（保留排序状态）
+                renderTable(filteredData);
+            }
+
+            /**
+             * 清除所有筛选条件并重置表格
+             */
+            function clearFilters() {
+                // 重置筛选控件
+                methodFilterInput.value = '';
+                argumentFilterInput.value = '';
+                sqlBindvalueSwitch.checked = false;
+                httpParamSwitch.checked = false;
+                // 重置排序方向
+                sortDirection = 1;
+                // 更新排序指示器
+                document.querySelector('.sort-indicator').textContent = '↑';
+                // 重新渲染原始数据
+                renderTable(originalParsedData);
+            }
+
+            /**
+             * 表格渲染方法：统一渲染逻辑，支持筛选/原始数据渲染
+             * @param {Array} data - 要渲染的数据集
+             */
+            function renderTable(data) {
+                const tbody = document.getElementById('api-stats-tbody');
+                tbody.innerHTML = ''; // 清空原有内容
+
+                // 无数据时显示提示
+                if (data.length === 0) {
+                    const emptyRow = document.createElement('tr');
+                    emptyRow.innerHTML = '<td colspan="5" style="text-align: center; padding: 20px;">暂无匹配数据</td>';
+                    tbody.appendChild(emptyRow);
+                    // 隐藏加载和完成提示
+                    document.getElementById('loading-container').style.display = 'none';
+                    document.getElementById('complete-notification').style.display = 'none';
+                    return;
+                }
+
+                // 显示加载状态
+                document.getElementById('loading-container').style.display = 'block';
+                document.getElementById('complete-notification').style.display = 'none';
+                // 更新进度信息
+                updateProgress(0, data.length);
+
+                // 分批渲染数据
+                batchRenderData(data, tbody);
+            }
+
+            /**
+             * 新增：分批渲染数据核心方法
+             * @param {Array} data - 要渲染的完整数据集
+             * @param {HTMLElement} tbody - 表格tbody元素
+             */
+            function batchRenderData(data, tbody) {
+                let currentIndex = 0; // 当前渲染到的索引
+                const total = data.length; // 总数据量
+
+                // 定义单批渲染函数
+                function renderBatch() {
+                    // 计算本次渲染的结束索引
+                    const endIndex = Math.min(currentIndex + BATCH_SIZE, total);
+                    // 渲染当前批次的数据
+                    for (let i = currentIndex; i < endIndex; i++) {
+                        const item = data[i];
+                        const row = document.createElement('tr');
+                        
+                        // 安全处理数据，避免undefined
+                        const params = escapeHtml(item.params || '');
+                        const methodName = escapeHtml(item.method_name || '');
+                        const agentId = escapeHtml(item.agentId || '');
+                        const count = item.count || 0;
+                        const transactionId = escapeHtml(item.transactionId || '');
+                        
+                        // 安全序列化详情数据
+                        let detailsStr = '[]';
+                        try {
+                            detailsStr = JSON.stringify(item.details || []);
+                        } catch (e) {
+                            console.error('序列化详情数据失败:', e);
+                        }
+                        
+                        // 构建按钮HTML，确保数据属性正确隔离
+                        row.innerHTML = `
+                            <td class="clickable">${params}</td>
+                            <td class="clickable">${methodName}</td>
+                            <td class="clickable">${agentId}</td>
+                            <td class="sortable">${count} <span class="sort-indicator">↑</span></td>
+                            <td>
+                                <button class="view-details-btn" 
+                                        data-agent-id="${agentId}" 
+                                        data-method-name="${methodName}" 
+                                        data-transaction-id="${transactionId}"
+                                        data-argument="${params}"
+                                        data-details="${escapeHtml(detailsStr)}">
+                                    详情
+                                </button>
+                            </td>
+                        `;
+                        tbody.appendChild(row);
+                    }
+
+                    // 更新进度
+                    currentIndex = endIndex;
+                    updateProgress(currentIndex, total);
+
+                    // 判断是否渲染完成
+                    if (currentIndex < total) {
+                        // 未完成，继续下一批
+                        setTimeout(renderBatch, RENDER_INTERVAL);
+                    } else {
+                        // 完成，隐藏加载状态，显示完成提示
+                        document.getElementById('loading-container').style.display = 'none';
+                        document.getElementById('complete-notification').style.display = 'block';
+                        document.getElementById('total-count').textContent = total;
+                        
+                        // 可选：3秒后自动隐藏完成提示
+                        setTimeout(() => {
+                            document.getElementById('complete-notification').style.display = 'none';
+                        }, 3000);
+                        
+                        // 播放提示音（可选）
+                        playCompleteSound();
+                    }
+                }
+
+                // 启动第一批渲染
+                renderBatch();
+            }
+
+            /**
+             * 新增：更新进度信息
+             * @param {number} current - 当前已加载数量
+             * @param {number} total - 总数量
+             */
+            function updateProgress(current, total) {
+                const progressInfo = document.getElementById('progress-info');
+                progressInfo.textContent = `已加载 ${current} / ${total} 条数据 (${Math.round((current/total)*100)}%)`;
+            }
+
+            /**
+             * 新增：播放完成提示音（可选）
+             */
+            function playCompleteSound() {
+                try {
+                    // 创建音频上下文
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+
+                    // 设置提示音参数（短而清脆的声音）
+                    oscillator.type = 'sine';
+                    oscillator.frequency.setValueAtTime(880, audioContext.currentTime); // 高音
+                    gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+                    
+                    // 播放0.2秒
+                    oscillator.start();
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.2);
+                    oscillator.stop(audioContext.currentTime + 0.2);
+                } catch (e) {
+                    // 不支持音频则忽略
+                    console.log('提示音播放失败:', e);
+                }
+            }
+
+            /**
+             * HTML转义工具函数（防止XSS和引号冲突）
+             */
+            function escapeHtml(str) {
+                if (!str) return '';
+                return String(str)
+                        .replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;')
+                        .replace(/"/g, '&quot;')
+                        .replace(/'/g, '&#39;')
+                        .replace(/\\/g, '&#92;');
+            }
+
+            /**
+             * 表单提交：解析URL并获取数据
+             */
+            document.getElementById('parse-link-form').addEventListener('submit', async function(event) {
+                event.preventDefault(); // 阻止默认提交
+
+                try {
+                    const url = document.getElementById('url').value;
+                    const encodedUrl = encodeURIComponent(url);
+                    
+                    // 显示加载状态（接口请求中）
+                    document.getElementById('stats_section').style.display = 'block';
+                    document.getElementById('loading-container').style.display = 'block';
+                    document.getElementById('complete-notification').style.display = 'none';
+                    updateProgress(0, 0); // 重置进度
+                    
+                    const response = await fetch(`/parse-link?url=${encodedUrl}`);
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP错误：${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    
+                    // 处理接口错误
+                    if (data.error) {
+                        document.getElementById('error-message').textContent = data.error;
+                        document.getElementById('error-message').style.display = 'block';
+                        document.getElementById('loading-container').style.display = 'none';
+                        return;
+                    }
+
+                    // 清空错误提示
+                    document.getElementById('error-message').style.display = 'none';
+                    // 重置排序方向
+                    sortDirection = 1;
+                    document.querySelector('.sort-indicator').textContent = '↑';
+
+                    // 格式化数据：将paramStats转换为筛选所需的数组格式
+                    originalParsedData = Object.keys(data.param_stats || {}).map(params => {
+                        const paramData = data.param_stats[params];
+                        // 核心：直接使用后端透传的标准字段（无需手动提取all_fields）
+                        const firstDetail = paramData.details[0] || {};
+                        return {
+                            params: params,
+                            method_name: firstDetail.method_name || '',
+                            agentId: firstDetail.agentId || '', // 改用后端透传的标准agentId
+                            transactionId: firstDetail.transactionId || '', // 改用后端透传的标准transactionId
+                            count: paramData.count || 0,
+                            details: paramData.details || []
+                        };
+                    });
+
+                    // 渲染原始数据表格（分批渲染）
+                    renderTable(originalParsedData);
+                } catch (err) {
+                    document.getElementById('error-message').textContent = '解析失败：' + err.message;
+                    document.getElementById('error-message').style.display = 'block';
+                    document.getElementById('loading-container').style.display = 'none';
+                    console.error('解析URL出错：', err);
+                }
+            });
+
+            /**
+             * 关闭详情模态框
+             */
+            document.getElementById('close-modal-btn').addEventListener('click', function() {
+                document.getElementById('details-modal').style.display = 'none';
+            });
+
+            /**
+             * 全局点击事件：处理排序、行展开、详情按钮、模态框遮罩
+             */
+            document.addEventListener('click', function(event) {
+                // 表格计数列排序
+                if (event.target.classList.contains('sortable') || event.target.parentElement.classList.contains('sortable')) {
+                    const sortCell = event.target.classList.contains('sortable') ? event.target : event.target.parentElement;
+                    const indicator = sortCell.querySelector('.sort-indicator');
+                    
+                    // 切换排序方向
+                    sortDirection *= -1;
+                    // 更新排序指示器
+                    indicator.textContent = sortDirection === 1 ? '↑' : '↓';
+
+                    const tbody = document.getElementById('api-stats-tbody');
+                    const rows = Array.from(tbody.rows);
+                    // 按计数值排序
+                    rows.sort((a, b) => {
+                        const aCount = parseInt(a.querySelector('.sortable').textContent.trim(), 10) || 0;
+                        const bCount = parseInt(b.querySelector('.sortable').textContent.trim(), 10) || 0;
+                        return (aCount - bCount) * sortDirection;
+                    });
+                    // 重新渲染排序后的行
+                    tbody.innerHTML = '';
+                    rows.forEach(row => tbody.appendChild(row));
+                }
+
+                // 表格单元格点击展开/折叠
+                if (event.target.classList.contains('clickable')) {
+                    event.target.classList.toggle('expanded');
+                }
+
+                // 查看详情按钮点击
+                if (event.target.classList.contains('view-details-btn')) {
+                    try {
+                        // 获取按钮数据
+                        const agentId = event.target.dataset.agentId || '';
+                        const methodName = event.target.dataset.methodName || '';
+                        const transactionId = event.target.dataset.transactionId || '';
+                        const argument = event.target.dataset.argument || '';
+                        const details = JSON.parse(event.target.dataset.details || '[]');
+
+                        // 填充模态框基础信息
+                        document.getElementById('argument-value').textContent = argument || '无';
+                        document.getElementById('method-value').textContent = methodName || '无';
+                        document.getElementById('agent-id-value').textContent = agentId || '无';
+                        document.getElementById('transaction-id-value').textContent = transactionId || '无';
+                        document.getElementById('count-value').textContent = details.length || 0;
+                        document.getElementById('detail-total').textContent = details.length || 0;
+
+                        // 处理空数据样式
+                        ['argument-value', 'method-value', 'agent-id-value', 'transaction-id-value', 'count-value'].forEach(id => {
+                            const el = document.getElementById(id);
+                            el.classList.toggle('empty', el.textContent === '无' || el.textContent === '0');
+                        });
+
+                        // 填充详情盒子
+                        const detailsBoxes = document.getElementById('details-boxes');
+                        detailsBoxes.innerHTML = '';
+                        
+                        if (details.length === 0) {
+                            detailsBoxes.innerHTML = '<div style="text-align:center; padding: 20px; color: #6b7280;">暂无明细数据</div>';
+                        } else {
+                            details.forEach((item, index) => {
+                                const box = document.createElement('div');
+                                box.className = 'details-box';
+                                
+                                // 安全获取明细数据
+                                const detailAgentId = escapeHtml(item.agentId || '无');
+                                const detailMethod = escapeHtml(item.method_name || '无');
+                                const detailParams = escapeHtml(item.params || '无');
+                                const detailTransId = escapeHtml(item.transactionId || '无');
+                                const callTime = escapeHtml(item.call_time || '无');
+                                const execTime = escapeHtml(item.exec_time || '无');
+                                const selfTime = escapeHtml(item.self_time || '无');
+                                const gapTime = escapeHtml(item.gap_time || '无');
+                                const isError = escapeHtml(item.is_error || '否');
+                                const callClass = escapeHtml(item.call_class || '无');
+                                const callApi = escapeHtml(item.call_api || '无');
+                                
+                                // 构建明细HTML
+                                box.innerHTML = `
+                                    <h4>明细 ${index + 1}</h4>
+                                    <div class="detail-row">
+                                        <span class="detail-key">Agent ID:</span>
+                                        <span class="detail-value">${detailAgentId}</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-key">Method:</span>
+                                        <span class="detail-value">${detailMethod}</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-key">参数:</span>
+                                        <span class="detail-value">${detailParams}</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-key">Transaction ID:</span>
+                                        <span class="detail-value">${detailTransId}</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-key">调用时间:</span>
+                                        <span class="detail-value">${callTime}</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-key">执行时间:</span>
+                                        <span class="detail-value">${execTime}</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-key">Self时间:</span>
+                                        <span class="detail-value">${selfTime}</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-key">Gap时间:</span>
+                                        <span class="detail-value">${gapTime}</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-key">调用类:</span>
+                                        <span class="detail-value">${callClass}</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-key">调用API:</span>
+                                        <span class="detail-value">${callApi}</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="detail-key">是否错误:</span>
+                                        <span class="detail-value ${isError !== '否' ? 'error' : ''}">${isError}</span>
+                                    </div>
+                                `;
+                                
+                                // 点击明细框显示完整信息
+                                box.addEventListener('click', function() {
+                                    const fullDetails = `
+    明细 ${index + 1} 完整信息：
+    Agent ID: ${detailAgentId}
+    Method: ${detailMethod}
+    参数: ${detailParams}
+    Transaction ID: ${detailTransId}
+    调用时间: ${callTime}
+    执行时间: ${execTime}
+    Self时间: ${selfTime}
+    Gap时间: ${gapTime}
+    应用IP: ${appIp}
+    调用类: ${callClass}
+    调用API: ${callApi}
+    是否错误: ${isError}
+                                    `.trim();
+                                    alert(fullDetails);
+                                });
+                                
+                                detailsBoxes.appendChild(box);
+                            });
+                        }
+
+                        // 显示模态框
+                        document.getElementById('details-modal').style.display = 'block';
+                    } catch (e) {
+                        console.error('处理详情数据失败:', e);
+                        document.getElementById('error-message').textContent = '加载详情失败：' + e.message;
+                        document.getElementById('error-message').style.display = 'block';
+                    }
+                }
+
+                // 点击模态框遮罩层关闭
+                if (event.target === document.getElementById('details-modal')) {
+                    document.getElementById('details-modal').style.display = 'none';
+                }
+            });
+            
+            // 按ESC键关闭模态框
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    document.getElementById('details-modal').style.display = 'none';
+                }
+            });
+            
+            // 页面刷新/关闭时，主动终止未完成的请求（可选强化）
+            window.addEventListener('beforeunload', function() {
+                if (abortController) {
+                    abortController.abort();
+                    console.log('页面刷新/关闭，已终止未完成的解析请求');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

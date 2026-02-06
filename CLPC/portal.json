@@ -1,0 +1,1134 @@
+[
+    {
+        "controls": [
+            {
+                "name": "返回账号登录",
+                "iframes": [],
+                "xpath": "//img[@class='qr-tips']"
+            },
+            {
+                "name": "账号",
+                "iframes": [],
+                "xpath": "//input[@id='userCode']"
+            },
+            {
+                "name": "密码",
+                "iframes": [],
+                "xpath": "//input[@id='passWord']"
+            },
+            {
+                "name": "验证码",
+                "iframes": [],
+                "xpath": "//input[@id='verCode']"
+            },
+            {
+                "name": "登录",
+                "iframes": [],
+                "xpath": "//div//div//form//div"
+            }
+        ],
+        "groupName": "登录"
+    },
+    {
+        "controls": [
+            {
+                "name": "我已知晓",
+                "iframes": [],
+                "xpath": "//a[text()='我已知晓']"
+            },
+            {
+                "name": "BAS",
+                "iframes": [],
+                "xpath": "//span[text()='业']"
+            },
+            {
+                "name": "FAS",
+                "iframes": [],
+                "xpath": "//span[text()='财']"
+            },
+            {
+                "name": "今天隐藏",
+                "iframes": [],
+                "xpath": "//a[text()='今天隐藏']"
+            },{
+                "name": "分省分析",
+                "iframes": [],
+                "xpath": "//span[text()='省']"
+            }
+        ],
+        "groupName": "数据分析平台"
+    },
+    {
+        "controls": [
+            {
+                "name": "菜单",
+                "iframes": [],
+                "xpath": "//div[@id='app']//div[@class='nav-bar']"
+            },
+            {
+                "name": "加载",
+                "iframes": [],
+                "xpath": "//div//div//svg"
+            },
+            {
+                "name": "分类",
+                "iframes": [],
+                "xpath": "//div[@id='app']//div[text()='$']"
+            },
+            {
+                "name": "一级菜单",
+                "iframes": [],
+                "xpath": "//section[@id='other']//li[@class='level1 fold']//span[text()='$'][not(contains(@style,'none'))]"
+            },
+            {
+                "name": "二级菜单",
+                "iframes": [],
+                "xpath": "//section[@id='other']//li[@class='level1 is-active']//li[@class='level2 fold']/div//span[text()='$'][not(contains(@style,'none'))]"
+            },
+            {
+                "name": "一级页面",
+                "iframes": [],
+                "xpath": "//section[@id='other']//li[@class='level1']//span[text()='$'][not(contains(@style,'none'))]"
+            },
+            {
+                "name": "二级页面",
+                "iframes": [],
+                "xpath": "//section[@id='other']//li[@class='level1 is-active']//li[@class='level2']//span[text()='$'][not(contains(@style,'none'))]"
+            },
+            {
+                "name": "三级页面",
+                "iframes": [],
+                "xpath": "//section[@id='other']//li[@class='level1 is-active']//li[@class='level3']//span[text()='$'][not(contains(@style,'none'))]"
+            },
+            {
+                "name": "三级菜单",
+                "iframes": [],
+                "xpath": "//section[@id='other']//li[@class='level1 is-active']//li[@class='level3 fold']//span[text()='$'][not(contains(@style,'none'))]"
+            },
+            {
+                "name": "四级页面",
+                "iframes": [],
+                "xpath": "//section[@id='other']//li[@class='level1 is-active']//li[@class='level4']//span[text()='$'][not(contains(@style,'none'))]"
+            }
+        ],
+        "groupName": "BAS主页"
+    },
+    {
+        "controls": [
+            {
+                "name": "可插入对象",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[text()='可插入对象']"
+            },
+            {
+                "name": "一级控件",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='tree_node_div']//div[@title='$']/span/a"
+            },
+            {
+                "name": "二级控件",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='tree_node_div']//div[@title='$']/span/a"
+            },
+            {
+                "name": "三级控件",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='tree_node_div']//div[@title='$']/span/a"
+            },
+            {
+                "name": "四级控件",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='tree_node_div']//div[@title='$']/span/a"
+            },
+            {
+                "name": "菜单控件-重名",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='tree_node_div'][@title='$']//div[@title='$']/span/a"
+            },
+            {
+                "name": "插入",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[contains(@style,'visible')]//td[text()='插入']"
+            },
+            {
+                "name": "行",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[contains(@style,'visible')]//table[@class='contextMenu_item']//td[text()='行']"
+            },
+            {
+                "name": "列",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[contains(@style,'visible')]//table[@class='contextMenu_item']//td[text()='列']"
+            },
+            {
+                "name": "替换",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[contains(@style,'visible')]//td[text()='替换']"
+            },
+            {
+                "name": "替换_行",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[contains(@style,'visible')]//td[text()='行']"
+            },
+            {
+                "name": "替换_列",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[contains(@style,'visible')]//td[text()='列']"
+            },
+            {
+                "name": "嵌套的行",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[contains(@style,'visible')]//td[text()='嵌套的行']"
+            },
+            {
+                "name": "嵌套的列",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[contains(@style,'visible')]//td[text()='嵌套的列']"
+            },
+            {
+                "name": "在上下文中过滤",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[contains(@style,'visible')]//td[text()='在上下文中过滤']"
+            },
+            {
+                "name": "使用默认度量",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[contains(@style,'visible')]//td[text()='使用默认度量']"
+            },
+            {
+                "name": "五级控件",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='tree_node_div']//div[@title='$']/span/a"
+            },
+            {
+                "name": "六级控件",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='tree_node_div']//div[@title='$']/span/a"
+            },
+            {
+                "name": "一级控件_展开",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[3]//div[@title='$']//img[1]"
+            },
+            {
+                "name": "二级控件_展开",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[6]//div[@title='$']//img[2]"
+            },
+            {
+                "name": "三级控件_展开",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[7]//div[@title='$']//img[3]"
+            },
+            {
+                "name": "四级控件_展开",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[8]//div[@title='$']//img[4]"
+            },
+            {
+                "name": "五级控件_展开",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@title='$']//img[5]"
+            },
+            {
+                "name": "一级控件_模糊",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[3]//a[text()='$']"
+            },
+            {
+                "name": "二级控件_模糊",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[6]//a[text()='$']"
+            },
+            {
+                "name": "三级控件_模糊",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[7]//a[text()='$']"
+            },
+            {
+                "name": "四级控件_模糊",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[8]//a[text()='$']"
+            },
+            {
+                "name": "五级控件_模糊",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//span[7]//a[text()='$']"
+            },
+            {
+                "name": "六级控件_模糊",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//span[8]//a[text()='$']"
+            },
+            {
+                "name": "空白交叉表-保存-否",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//a[text()='否']"
+            },
+            {
+                "name": "title",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//table[@class='crosstabTable_NS']//tr[2]"
+            },
+            {
+                "name": "加粗数量",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//tr[2]//td[@class='ol'][@colspan='1']"
+            }
+        ],
+        "groupName": "查询条件"
+    },
+    {
+        "controls": [
+            {
+                "name": "沙漏2",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='app_pane']//div[8]"
+            },
+            {
+                "name": "沙漏1",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='app_pane']//div[7]"
+            }
+        ],
+        "groupName": "页面元素加载"
+    },
+    {
+        "controls": [
+            {
+                "name": "数据页面",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='pg crosstabTableDiv']"
+            },
+            {
+                "name": "all",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//td[@class='BlockBottomEdge'][@colspan='1']"
+            },
+            {
+                "name": "DataCell",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//table[@class='crosstabTable_NS']//td[@class='DataCell']"
+            },
+            {
+                "name": "行头",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//td[@rowspan='1']//a[@class='MemberCellLabel']"
+            },
+            
+            {
+                "iframes": ["//frame[@name='studioFrame']"],
+                "name": "数据表格",
+                "xpath": "//table[@class='crosstabTable_NS']"
+            },
+            {
+                "xpath": "//td[contains(@class,'ColMemberCellTemplate')]",
+                "iframes": ["//frame[@name='studioFrame']"],
+                "name": "列表格"
+            }
+        ],
+        "groupName": "查询结果"
+    },
+    {
+        "controls": [
+            {
+                "name": "运行",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//a[text()='运行']"
+            },
+            {
+                "name": "以 Excel 2007格式",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[contains(@style, 'visible')][@class='contextMenu_body_NS']/table//tr/td[contains(text(),'Excel 2007')]"
+            },
+            {
+                "name": "文件名输入框",
+                "iframes": [],
+                "xpath": "//"
+            },
+            {
+                "name": "保存",
+                "iframes": [],
+                "xpath": "//"
+            }
+        ],
+        "groupName": "下载报表"
+    },
+    {
+        "controls": [
+            {
+                "name": "设置",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//a[text()='设置']"
+            },
+            {
+                "name": "设定可视项目数",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//td[text()='设定可视项目数...']"
+            },
+            {
+                "name": "可视项目数输入框",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//input[@type='text']"
+            },
+            {
+                "name": "确定",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//a[text()='确定']"
+            }
+        ],
+        "groupName": "设置可视化个数"
+    },
+    {
+        "controls": [
+            {
+                "name": "上下文过滤器下三角",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='app_pane']//div[@class='context_bar']//div[@class='right_resize_pane']//div[@class='scroll_pane']//div[@class='filter_context_set']//table[@class='filter_context_table']//tbody[@class='filter_context_tbody']//td[1]//td[3]"
+            },
+            {
+                "name": "上下文过滤器下三角-嵌套",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='app_pane']//div[@class='context_bar']//div[@class='right_resize_pane']//div[@class='scroll_pane']//div[@class='filter_context_set']//table[@class='filter_context_table']//tbody[@class='filter_context_tbody']//td[@class='filter_context_item']//td[3]"
+            },
+            {
+                "name": "行下三角",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='app_pane']//div[@class='context_bar']//div[@class='left_resize_pane']//div[1]//td[1]//td[4]"
+            },
+            {
+                "name": "行下三角-嵌套",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='app_pane']//div[@class='context_bar']//div[@class='left_resize_pane']//div[@class='scroll_pane']//div[@class='axis_context_set']//table[@class='axis_context_table']//tbody[@class='axis_context_tbody']//td[@class='axis_context_item']//td[4]"
+            },
+            {
+                "name": "列下三角",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='app_pane']//div[@class='context_bar']//div[@class='left_resize_pane']//div[2]//td[1]//td[4]"
+            },
+            {
+                "name": "列下三角-嵌套",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='app_pane']//div[@class='context_bar']//div[@class='left_resize_pane']//div[2]//td[2]//td[4]"
+            },
+            {
+                "name": "删除",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//td[text()='删除']"
+            }
+        ],
+        "groupName": "删除控件"
+    },
+    {
+        "controls": [
+            {
+                "name": "更多",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div//div//div//div//table//tbody//tr//td//div//a//span"
+            },
+            {
+                "name": "更多-行",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div//div//div//div//table//tbody//tr//td[contains(@class,'BlockLeftEdge')]//div//a//span"
+            },
+            {
+                "name": "更多-嵌套行",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//td[contains(@class,'lockRightEdge')]//span[@class='SpecialCalcText']"
+            },
+            {
+                "name": "更多-列",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div//div//div//div//table//tbody//tr//td[contains(@class,'BlockTopEdge')]//div//a//span"
+            },
+            {
+                "name": "横向滚动条",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[contains(@id,'scrollbar')]/img[contains(@src,'RightArrow')]/parent::div/span"
+            },
+            {
+                "name": "横向滚动条-最右",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[contains(@id,'scrollbar')]/img[contains(@src,'RightArrow')]"
+            },
+            {
+                "name": "自定义",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//td[text()='自定义']"
+            },
+            {
+                "name": "可视项目下三角",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='app_pane']//div[@class='BlockProperties']//div[@class='BlockPropertiesContainer']//tr[1]//td[2]//div[1]/span"
+            },
+            {
+                "name": "9999",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//td[text()='9999（最大值）']"
+            },
+            {
+                "name": "显示所有行-确定",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//a[text()='确定']"
+            }
+        ],
+        "groupName": "显示所有行"
+    },
+    {
+        "controls": [
+            {
+                "name": "FAS_分类",
+                "iframes": [],
+                "xpath": "//tr[@id='jsmenu']//div[text()='$']"
+            },
+            {
+                "name": "FAS_三级菜单&页面",
+                "iframes": [],
+                "xpath": "//li[@id='root']//a[text()='$']"
+            },
+            {
+                "name": "FAS_四级菜单&页面",
+                "iframes": [],
+                "xpath": "//li[@id='root'][@class='jstree-last jstree-open']//li[@class='jstree-last jstree-open']//a[text()='$']"
+            },
+            {
+                "name": "FAS_五级菜单&页面",
+                "iframes": [],
+                "xpath": "//li[@id='root']//li[4]//a[text()='$']"
+            },
+            {
+                "name": "FAS_二级菜单&页面",
+                "iframes": [],
+                "xpath": "//li[@id='root']//a[text()='$']/parent::li/ins"
+            },
+            {
+                "name": "fas_flag",
+                "iframes": [],
+                "xpath": "//li[@id='root']"
+            },
+            {
+                "name": "FAS_页面",
+                "iframes": [],
+                "xpath": "//li[@id='root']//a[text()='$']"
+            },
+            {
+                "name": "FAS_菜单展开",
+                "iframes": [],
+                "xpath": "//li[@id='root']//a[text()='$']/parent::li/ins"
+            },
+            {
+                "name": "净利润图片",
+                "iframes": [
+                    "//iframe[contains(@src,'/portal/jsonTreeAction.do')]"
+                ],
+                "xpath": "//div[@id='showcase']"
+            }
+        ],
+        "groupName": "FAS主页"
+    },
+    {
+        "controls": [
+            {
+                "name": "正在载入_3级",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//span[text()='正在载入...']"
+            },
+            {
+                "name": "正在载入_2级",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//span[text()='正在载入...']"
+            },
+            {
+                "name": "正在载入_1级",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//span[text()='正在载入...']"
+            },
+            {
+                "name": "正在载入_4级",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//span[text()='正在载入...']"
+            },
+            {
+                "name": "正在载入_5级",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//span[text()='正在载入...']"
+            }
+        ],
+        "groupName": "展开控件"
+    },
+    {
+        "controls": [
+            {
+                "name": "精算_一级菜单",
+                "iframes": [
+                    "//iframe[@src='http://9.1.64.187:7001/reserve/common/main.jsp']",
+                    "//iframe[@src='http://9.1.64.187:7001/reserve/common/menulist.jsp']",
+                    "//iframe[@src='http://9.1.64.187:7001/reserve/common/tree.jsp']"
+                ],
+                "xpath": "//td[1][@class='itemLink'][text()='$']"
+            },
+            {
+                "name": "精算_验证码登录",
+                "iframes": [],
+                "xpath": "//table[@id='logonwechat']"
+            },
+            {
+                "name": "精算_账号",
+                "iframes": [],
+                "xpath": "//input[@id='uc']"
+            },
+            {
+                "name": "精算_密码",
+                "iframes": [],
+                "xpath": "//input[@id='pw']"
+            },
+            {
+                "name": "精算_验证码",
+                "iframes": [],
+                "xpath": "//input[@id='codecode']"
+            },
+            {
+                "name": "精算_登录",
+                "iframes": [],
+                "xpath": "//table[@id='logonuser']//input[@type='image']"
+            },
+            {
+                "name": "精算_二级页面",
+                "iframes": [
+                    "//iframe[@src='http://9.1.64.187:7001/reserve/common/main.jsp']",
+                    "//iframe[@src='http://9.1.64.187:7001/reserve/common/menulist.jsp']",
+                    "//iframe[@src='http://9.1.64.187:7001/reserve/common/tree.jsp']"
+                ],
+                "xpath": "//a[text()='$']"
+            },
+            {
+                "name": "搜索(进展月)",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//a[text()='搜索 (进展月)...']"
+            },
+            {
+                "name": "关键字",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//input[@type='text']"
+            },
+            {
+                "name": "搜索",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div//div//div//div//table//tbody//tr//td//table//tbody//tr//td//span"
+            },
+            {
+                "name": "搜索结果",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//td[text()='$']"
+            },
+            {
+                "name": "关闭搜索",
+                "iframes": [
+                    "//iframe[@src='http://9.1.192.138:9300/p2pd/explore/explore.htm']"
+                ],
+                "xpath": "//"
+            }
+        ],
+        "groupName": "精算系统"
+    },
+    {
+        "controls": [
+            {
+                "name": "文件",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//a[text()='文件']"
+            },
+            {
+                "name": "新建",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//td[text()='新建']"
+            },
+            {
+                "name": "交叉空白表",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[contains(@style,'visible')]//td[text()='空白交叉表']"
+            },
+            {
+                "name": "文件-打开",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//td[text()='打开...']"
+            }
+        ],
+        "groupName": "clear"
+    },
+    {
+        "groupName": "文件夹操作",
+        "controls": [
+            {
+                "name": "打开",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='main_toolbar']//div[@title='打开']"
+            },
+            {
+                "name": "我的文件夹",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//span[contains(@class, 'dialogImgButton')][text()='我的文件夹']"
+            },
+            {
+                "name": "文件夹列表",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='ListCtrl']//tr[@title='$']"
+            },
+            {
+                "name": "打开文件夹后的弹窗确定",
+                "xpath": "//table[@class='dialogbuttons']//a[text()='确定']",
+                "iframes": [
+                    "//frame"
+                ]
+            }
+        ]
+
+    },
+    {
+        "groupName": "文件夹打开的页面内操作",
+        "controls": [
+            {
+                "name": "新页面-可插入对象",
+                "iframes": [],
+                "xpath": "//div[text()='可插入对象']"
+            },
+            {
+                "name": "新页面-一级控件",
+                "iframes": [
+                ],
+                "xpath": "//div[@class='tree_node_div']//div[@title='$']/span/a"
+            },
+            {
+                "name": "新页面-二级控件",
+                "iframes": [
+                ],
+                "xpath": "//div[@class='tree_node_div']//div[@title='$']/span/a"
+            },
+            {
+                "name": "新页面-三级控件",
+                "iframes": [
+                ],
+                "xpath": "//div[@class='tree_node_div']//div[@title='$']/span/a"
+            },
+            {
+                "name": "新页面-四级控件",
+                "iframes": [
+                ],
+                "xpath": "//div[@class='tree_node_div']//div[@title='$']/span/a"
+            },
+            {
+                "name": "新页面-插入",
+                "iframes": [
+                ],
+                "xpath": "//div[contains(@style,'visible')]//td[text()='插入']"
+            },
+            {
+                "name": "新页面-行",
+                "iframes": [
+                ],
+                "xpath": "//div[contains(@style,'visible')]//table[@class='contextMenu_item']//td[text()='行']"
+            },
+            {
+                "name": "新页面-列",
+                "iframes": [
+                ],
+                "xpath": "//div[contains(@style,'visible')]//table[@class='contextMenu_item']//td[text()='列']"
+            },
+            {
+                "name": "新页面-替换",
+                "iframes": [
+                ],
+                "xpath": "//div[contains(@style,'visible')]//td[text()='替换']"
+            },
+            {
+                "name": "新页面-替换_行",
+                "iframes": [
+                ],
+                "xpath": "//div[contains(@style,'visible')]//td[text()='行']"
+            },
+            {
+                "name": "替换_列",
+                "iframes": [
+                ],
+                "xpath": "//div[contains(@style,'visible')]//td[text()='列']"
+            },
+            {
+                "name": "新页面-嵌套的行",
+                "iframes": [
+                ],
+                "xpath": "//div[contains(@style,'visible')]//td[text()='嵌套的行']"
+            },
+            {
+                "name": "新页面-嵌套的列",
+                "iframes": [
+                ],
+                "xpath": "//div[contains(@style,'visible')]//td[text()='嵌套的列']"
+            },
+            {
+                "name": "新页面-在上下文中过滤",
+                "iframes": [
+                ],
+                "xpath": "//div[contains(@style,'visible')]//td[text()='在上下文中过滤']"
+            },
+            {
+                "name": "新页面-使用默认度量",
+                "iframes": [
+                ],
+                "xpath": "//div[contains(@style,'visible')]//td[text()='使用默认度量']"
+            },
+            {
+                "name": "新页面-五级控件",
+                "iframes": [
+                ],
+                "xpath": "//div[@class='tree_node_div']//div[@title='$']/span/a"
+            },
+            {
+                "name": "新页面-六级控件",
+                "iframes": [
+                ],
+                "xpath": "//div[@class='tree_node_div']//div[@title='$']/span/a"
+            },
+            {
+                "name": "新页面-菜单控件-重名",
+                "iframes": [
+                ],
+                "xpath": "//div[@class='tree_node_div'][@title='$']//div[@title='$']/span/a"
+            },
+            {
+                "name": "新页面-以 Excel 2007格式",
+                "iframes": [
+                ],
+                "xpath": "//div[contains(@style, 'visible')][@class='contextMenu_body_NS']/table//tr/td[contains(text(),'Excel 2007')]"
+            },
+            {
+                "name": "新页面-运行",
+                "iframes": [
+                ],
+                "xpath": "//a[text()='运行']"
+            },
+            {
+                "name": "新页面-文件名输入框",
+                "iframes": [],
+                "xpath": "//"
+            },
+            {
+                "name": "新页面-保存",
+                "iframes": [],
+                "xpath": "//"
+            },
+            {
+                "name": "新页面-更多",
+                "iframes": [
+                ],
+                "xpath": "//div//div//div//div//table//tbody//tr//td//div//a//span"
+            },
+            {
+                "name": "新页面-更多-行",
+                "iframes": [
+                ],
+                "xpath": "//div//div//div//div//table//tbody//tr//td[contains(@class,'BlockLeftEdge')]//div//a//span"
+            },
+            {
+                "name": "新页面-更多-列",
+                "iframes": [
+                ],
+                "xpath": "//div//div//div//div//table//tbody//tr//td[contains(@class,'BlockTopEdge')]//div//a//span"
+            },
+            {
+                "name": "新页面-横向滚动条",
+                "iframes": [
+                ],
+                "xpath": "//div[contains(@id,'scrollbar')]/img[contains(@src,'RightArrow')]/parent::div/span"
+            },
+            {
+                "name": "新页面-横向滚动条-最右",
+                "iframes": [
+                ],
+                "xpath": "//div[contains(@id,'scrollbar')]/img[contains(@src,'RightArrow')]"
+            },
+            {
+                "name": "新页面-自定义",
+                "iframes": [
+                ],
+                "xpath": "//td[text()='自定义']"
+            },
+            {
+                "name": "新页面-可视项目下三角",
+                "iframes": [
+                ],
+                "xpath": "//div[@class='app_pane']//div[@class='BlockProperties']//div[@class='BlockPropertiesContainer']//tr[1]//td[2]//div[1]/span"
+            },
+            {
+                "name": "新页面-9999",
+                "iframes": [
+                ],
+                "xpath": "//td[text()='9999（最大值）']"
+            },
+            {
+                "name": "新页面-显示所有行-确定",
+                "iframes": [
+                ],
+                "xpath": "//a[text()='确定']"
+            },
+            {
+                "name": "新页面-正在载入_1级",
+                "iframes": [
+                ],
+                "xpath": "//span[text()='正在载入...']"
+            },
+            {
+                "name": "新页面-沙漏2",
+                "iframes": [
+                ],
+                "xpath": "//div[@class='app_pane']//div[8]"
+            },
+            {
+                "name": "新页面-沙漏1",
+                "iframes": [
+                ],
+                "xpath": "//div[@class='app_pane']//div[7]"
+            },
+            {
+                "name": "新页面-上下文过滤器下三角",
+                "iframes": [
+                ],
+                "xpath": "//div[@class='app_pane']//div[@class='context_bar']//div[@class='right_resize_pane']//div[@class='scroll_pane']//div[@class='filter_context_set']//table[@class='filter_context_table']//tbody[@class='filter_context_tbody']//td[1]//td[3]"
+            },
+            {
+                "name": "新页面-上下文过滤器下三角-嵌套",
+                "iframes": [
+                ],
+                "xpath": "//div[@class='app_pane']//div[@class='context_bar']//div[@class='right_resize_pane']//div[@class='scroll_pane']//div[@class='filter_context_set']//table[@class='filter_context_table']//tbody[@class='filter_context_tbody']//td[@class='filter_context_item']//td[3]"
+            },
+            {
+                "name": "新页面-行下三角",
+                "iframes": [
+                ],
+                "xpath": "//div[@class='app_pane']//div[@class='context_bar']//div[@class='left_resize_pane']//div[1]//td[1]//td[4]"
+            },
+            {
+                "name": "新页面-行下三角-嵌套",
+                "iframes": [
+                ],
+                "xpath": "//div[@class='app_pane']//div[@class='context_bar']//div[@class='left_resize_pane']//div[@class='scroll_pane']//div[@class='axis_context_set']//table[@class='axis_context_table']//tbody[@class='axis_context_tbody']//td[@class='axis_context_item']//td[4]"
+            },
+            {
+                "name": "新页面-列下三角",
+                "iframes": [
+                ],
+                "xpath": "//div[@class='app_pane']//div[@class='context_bar']//div[@class='left_resize_pane']//div[2]//td[1]//td[4]"
+            },
+            {
+                "name": "新页面-列下三角-嵌套",
+                "iframes": [
+                ],
+                "xpath": "//div[@class='app_pane']//div[@class='context_bar']//div[@class='left_resize_pane']//div[2]//td[2]//td[4]"
+            },
+            {
+                "name": "新页面-删除",
+                "iframes": [
+                ],
+                "xpath": "//div[@class='contextMenu_body_NS'][not(contains(@style, 'hidden'))]//td[text()='删除']"
+            },
+            {
+                "name": "新页面-数据表格",
+                "iframes": [],
+                "xpath": "//table[@class='crosstabTable_NS']"
+            }
+        ]
+    },
+    {
+        "groupName": "搜索数据操作",
+        "controls": [
+            {
+                "name": "搜索数据",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='tree_node_div']//div[contains(@title,'搜索')]/span/a[text()='$']"
+            },
+            {
+                "name": "搜索输入框",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='dlgContentDiv']//input[@type='text']"
+            },
+            {
+                "name": "搜索按钮",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='dlgContentDiv']//span[@class='dialogImgButton'][text()='搜索']"
+            },
+            {
+                "name": "搜索结果",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='srchDlgResultDiv']//td[@title='$']"
+            },
+            {
+                "name": "关闭搜索",
+                "iframes": [
+                    "//frame"
+                ],
+                "xpath": "//div[@class='dialogDiv_NS']//a[text()='关闭']"
+            }
+        ]
+    }
+]

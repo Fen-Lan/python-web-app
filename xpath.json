@@ -1,0 +1,47 @@
+[
+  {
+    "controls": [
+      {
+        "iframes": "",
+        "name": "应用信息点位图",
+        "xpath": "//body/pp-root/pp-main-page[@class='ng-star-inserted']/div[@class='container']/div[@class='l-main-container']/section[@class='l-main-section']/pp-main-contents-container[@class='ng-star-inserted']/pp-side-bar-container[@class='ng-star-inserted']/section[@class='l-sidemenu-wrap font-opensans']/div[@class='l-sidemenu']/div[@class='l-contents-group']/div[@class='l-chart-group-list']/pp-scatter-chart-container/article[@class='l-chart-item']/pp-scatter-chart/div[@class='l-wrapper']/div[@class='l-scatter']/div[4]"
+      },
+      {
+        "iframes": "",
+        "name": "应用信息",
+        "xpath": "//*[@id='transaction-table']/div/div[1]/div/div[3]/div[2]/div/div"
+      },
+      {
+        "iframes": "",
+        "name": "点位图具体位置",
+        "xpath": "//*[@id='pinpoint']/pp-root/pp-main-page/div/div/section/pp-main-contents-container/pp-side-bar-container/section/div/div[2]/div/pp-scatter-chart-container/article/pp-scatter-chart/div/div/div[3]"
+      }
+    ],
+    "groupName": "获取"
+  },
+  {
+    "controls": [
+      {
+        "iframes": "",
+        "name": "设置ms",
+        "xpath": "//div[@class='l-tool-box']//div//button[@class='fas fa-cog']"
+      },
+      {
+        "iframes": "",
+        "name": "应用",
+        "xpath": "//button[@class='active btn']"
+      }
+    ],
+    "groupName": "点击"
+  },
+  {
+    "controls": [
+      {
+        "iframes": "",
+        "name": "输入y轴最大值",
+        "xpath": "//li[2]//input[1]"
+      }
+    ],
+    "groupName": "输入"
+  }
+]

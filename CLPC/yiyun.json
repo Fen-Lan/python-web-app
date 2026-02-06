@@ -1,0 +1,82 @@
+[
+  {
+    "controls": [
+      {
+        "iframes": [],
+        "name": "内网门户-账号登录切换",
+        "xpath": "//span[contains(text(),'账号登录')]"
+      },
+      {
+        "iframes": [],
+        "name": "用户名",
+        "xpath": "//input[@id='loginName']"
+      },
+      {
+        "iframes": [],
+        "name": "密码",
+        "xpath": "//input[@id='authStr']"
+      },
+      {
+        "iframes": [],
+        "name": "验证码",
+        "xpath": "//input[@id='webchatcode']"
+      },
+      {
+        "iframes": [],
+        "name": "登录",
+        "xpath": "//button[@caption='登录']"
+      },
+      {
+        "iframes": "",
+        "name": "机构选择",
+        "xpath": "//input[@placeholder]"
+      },
+      {
+        "iframes": "",
+        "name": "机构选项",
+        "xpath": "//span[text()='$']"
+      },
+      {
+        "iframes": "",
+        "name": "易云入口",
+        "xpath": "//div[@class='go go-2']"
+      },
+      {
+       "xpath": "//span[text()=' 确定 ']",
+        "iframes": [],
+        "name": "机构确定"
+      }
+    ],
+    "groupName": "易云登录"
+  },
+  {
+    "controls": [
+      {
+        "iframes": "",
+        "name": "应用名称",
+        "xpath": "//div[text()='$']"
+      },
+      {
+        "iframes": "",
+        "name": "左侧菜单",
+        "xpath": "//div[@class='todo-count-text']"
+      },
+      {
+        "iframes": "",
+        "name": "应用搜索输入",
+        "xpath": "//input[@placeholder='请输入名称来搜索']"
+      },
+      {
+        "iframes": "",
+        "name": "应用搜索结果",
+        "xpath": "//ul[@class='item-list']//div[@class='filter-name']"
+      },
+      {
+        "iframes": "",
+        "name": "工作台",
+        "xpath": "//a[contains(text(),'工作台')]"
+      }
+    ],
+    "groupName": "易云工作台"
+  }
+]

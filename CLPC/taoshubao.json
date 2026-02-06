@@ -1,0 +1,223 @@
+[
+    {
+        "controls": [
+            {
+                "name": "返回账号登录",
+                "iframes": [],
+                "xpath": "//img[@class='qr-tips']"
+            },
+            {
+                "name": "账号",
+                "iframes": [],
+                "xpath": "//input[@id='userCode']"
+            },
+            {
+                "name": "密码",
+                "iframes": [],
+                "xpath": "//input[@id='passWord']"
+            },
+            {
+                "name": "验证码",
+                "iframes": [],
+                "xpath": "//input[@id='verCode']"
+            },
+            {
+                "name": "登录",
+                "iframes": [],
+                "xpath": "//div//div//form//div"
+            }
+        ],
+        "groupName": "登录"
+    },
+    {
+        "controls": [
+            {
+                "name": "BAS",
+                "iframes": [],
+                "xpath": "//span[text()='业']"
+            },
+            {
+                "name": "FAS",
+                "iframes": [],
+                "xpath": "//span[text()='财']"
+            },
+            {
+                "name": "今天隐藏",
+                "iframes": [],
+                "xpath": "//a[text()='今天隐藏']"
+            }
+        ],
+        "groupName": "数据分析平台"
+    },
+    {
+        "groupName": "淘数宝",
+        "controls": [
+            {
+                "name": "淘数宝",
+                "iframes": [],
+                "xpath": "//span[contains(text(),'淘')]"
+            },
+            {
+                "name": "我的订单",
+                "iframes": [],
+                "xpath": "//a[@id='wddd']"
+            },
+            {
+                "name": "订单编号",
+                "iframes": [
+                    "//iframe[contains(@src,'offline/index.html?flag=0')]"
+                ],
+                "xpath": "//input[@id='mentiondigital']"
+            },
+            {
+                "name": "查询订单",
+                "iframes": [
+                    "//iframe[contains(@src,'offline/index.html?flag=0')]"
+                    
+                ],
+                "xpath": "//input[@id='search']"
+            },
+            {
+                "name": "再来一单",
+                "iframes": [
+                    "//iframe[contains(@src,'offline/index.html?flag=0')]"
+                ],
+                "xpath": "//a[@href='#'][contains(text(),'再来一单')]"
+            },
+            {
+                "name": "日期",
+                "iframes": [
+                    "//iframe[contains(@src,'hisAnalyzeId')]"
+                ],
+                "xpath": "//li[@id='filters']/a"
+            },
+            {
+                "name": "日期-编辑",
+                "iframes": [
+                    "//iframe[contains(@src,'hisAnalyzeId')]"
+                ],
+                "xpath": "//div[@id='datefmm']/div[2]"
+            },
+            {
+                "name": "日期-确定",
+                "iframes": [
+                    "//iframe[contains(@src,'hisAnalyzeId')]"
+                ],
+                "xpath": "//button[@id='max_date_return_btn']"
+            },
+            {
+                "name": "加入购物车",
+                "iframes": [
+                    "//iframe[contains(@src,'hisAnalyzeId')]"
+                ],
+                "xpath": "//div[contains(text(),'加入购物车')]"
+            },
+            {
+                "name": "加入购物车-确定",
+                "iframes": [
+                    "//iframe[contains(@src,'hisAnalyzeId')]"
+                ],
+                "xpath": "//span[@class='l-btn-left']//span[@class='l-btn-text'][contains(text(),'确定')]"
+            },
+            {
+                "name": "任务名称",
+                "iframes": [
+                    "//iframe[contains(@src,'hisAnalyzeId')]"
+                ],
+                "xpath": "//input[@id='missionname']"
+            },
+            {
+                "name": "任务类型",
+                "iframes": [
+                    "//iframe[contains(@src,'hisAnalyzeId')]"
+                ],
+                "xpath": "//select[@id='tasktype']"
+            },
+            {
+                "name": "提交订单",
+                "iframes": [
+                    "//iframe[contains(@src,'hisAnalyzeId')]"
+                ],
+                "xpath": "//button[@id='submitOrderx']"
+            },
+            {
+                "name": "下单订单号",
+                "iframes": [
+                    "//iframe[contains(@src,'hisAnalyzeId')]"
+                ],
+                "xpath": "//label[@id='tsm']"
+            },
+            {
+                "name": "提交订单-确定",
+                "iframes": [
+                    "//iframe[contains(@src,'hisAnalyzeId')]"
+                ],
+                "xpath": "//div[@id='winSuccess']/table[1]/tbody[1]/tr[4]/td[1]/button[1]"
+            },
+            {
+                "name": "下载",
+                "iframes": [
+                    "//iframe[contains(@src,'offline/index.html?flag=0')]"
+                ],
+                "xpath": "//td[@field='operate']//a[contains(text(),'下载')]"
+            },
+            {
+                "name": "我知道了",
+                "iframes": [
+                    "//iframe[contains(@src,'offline/index.html?flag=0')]"
+                ],
+                "xpath": "//a[contains(text(),'我知道了')]"
+            },
+            {
+                "name": "执行状态-完成",
+                "iframes": [
+                    "//iframe[contains(@src,'offline/index.html?flag=0')]"
+                ],
+                "xpath": "//td[@field='status']//div[contains(text(),'完成')]"
+                      
+            }               
+            ,
+            {
+                "name": "执行状态-待执行",
+                "iframes": [
+                    "//iframe[contains(@src,'hisAnalyzeId')]"
+                ],
+                "xpath": "//div[contains(text(),'待执行')]"
+                      
+            },
+            {
+                "name": "开始日期",
+                "iframes": [
+                    "//iframe[contains(@src,'hisAnalyzeId')]"
+                ],
+                "xpath": "//input[@id='rangeMinDate']"
+                      
+            },
+            {
+                "name": "结束日期",
+                "iframes": [
+                    "//iframe[contains(@src,'hisAnalyzeId')]"
+                ],
+                "xpath": "//input[@id='rangeMaxDate']"
+                      
+            },
+            {
+                "name": "开始日期-关闭",
+                "iframes": [
+                    "//iframe[contains(@src,'hisAnalyzeId')]"
+                ],
+                "xpath": "//*[@id='layui-laydate1']/div[2]/div/span[3]"
+                      
+            },
+            {
+                "name": "结束日期-关闭",
+                "iframes": [
+                    "//iframe[contains(@src,'hisAnalyzeId')]"
+                ],
+                "xpath": "//*[@id='layui-laydate2']/div[2]/div/span[3]"
+                      
+            }                 
+  
+        ]
+    }
+]

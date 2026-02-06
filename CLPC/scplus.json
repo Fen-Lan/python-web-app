@@ -1,0 +1,452 @@
+[
+  {
+    "controls": [
+      {
+        "name": "返回账号登录",
+        "iframes": [],
+        "xpath": "//img[@class='qr-tips']"
+      },
+      {
+        "name": "账号",
+        "iframes": [],
+        "xpath": "//input[@id='userCode']"
+      },
+      {
+        "name": "密码",
+        "iframes": [],
+        "xpath": "//input[@id='passWord']"
+      },
+      {
+        "name": "验证码",
+        "iframes": [],
+        "xpath": "//input[@id='verCode']"
+      },
+      {
+        "name": "登录",
+        "iframes": [],
+        "xpath": "//div//div//form//div"
+      },
+      {
+        "name": "清单名称",
+        "iframes": [],
+        "xpath": "//div[@class='text_omil el-col el-col-15'][contains(text(),'$')]"
+      }
+    ],
+    "groupName": "登录"
+  },
+  {
+    "controls": [
+      {
+        "name": "BAS",
+        "iframes": [],
+        "xpath": "//span[text()='业']"
+      },
+      {
+        "name": "FAS",
+        "iframes": [],
+        "xpath": "//span[text()='财']"
+      },
+      {
+        "name": "今天隐藏",
+        "iframes": [],
+        "xpath": "//a[text()='今天隐藏']"
+      },
+      {
+        "name": "闪查Plus",
+        "iframes": [],
+        "xpath": "//p[contains(text(),'闪查Plus')]"
+      }
+    ],
+    "groupName": "数据分析平台"
+  },
+  {
+    "controls": [
+      {
+        "name": "执行",
+        "iframes": [],
+        "xpath": "//span[@id='form-step-search_btn']"
+      },
+      {
+        "name": "执行完成保单判断",
+        "iframes": [],
+        "xpath": "//th[contains(@class,'is-leaf')]"
+      },
+      {
+        "name": "执行完成提示判断",
+        "iframes": [],
+        "xpath": "//div[contains(@class,'el-message-box__title')]"
+      },
+      {
+        "name": "提示继续",
+        "iframes": [],
+        "xpath": "//button[@class='el-button el-button--default el-button--small el-button--primary ']"
+      },
+      {
+        "name": "下载按钮",
+        "iframes": [],
+        "xpath": "//span[@id='form-step-export_btn']"
+      },
+      {
+        "name": "下载提示",
+        "iframes": [],
+        "xpath": "//div[@align='center']"
+      },
+      {
+        "name": "保存订单离线下载",
+        "iframes": [],
+        "xpath": "//div[3]//span[1]//button[2]"
+      },
+      {
+        "name": "订单编号",
+        "iframes": [],
+        "xpath": "//span[contains(@class,'content-main-ri-titleTxt save_txt')]"
+      },
+      {
+        "name": "自动执行",
+        "iframes": [],
+        "xpath": "//span[contains(text(),'自动执行:')]"
+      },
+      {
+        "name": "订单名称输入",
+        "iframes": [],
+        "xpath": "//input[@placeholder='请输入']"
+      },
+      {
+        "name": "制作订单确定",
+        "iframes": [],
+        "xpath": "//div[@class='el-dialog__body']//div[@class='dialog-footer']//button[@type='button']"
+      },
+      {
+        "name": "提交订单关闭",
+        "iframes": [],
+        "xpath": "//div[contains(@class,'el-dialog__body')]//div[contains(@class,'dialog-footer')]//button[contains(@type,'button')]"
+      },
+      {
+        "name": "我的订单",
+        "iframes": [],
+        "xpath": "//span[contains(text(),'我的订单')]"
+      },
+      {
+        "name": "订单号码输入",
+        "iframes": [],
+        "xpath": "//input[@placeholder='订单号码']"
+      },
+      {
+        "name": "已完成标志",
+        "iframes": [],
+        "xpath": "(//span[@class='order_status-complete'][contains(text(),'已完成')])[1]"
+      },
+      {
+        "name": "订单查询",
+        "iframes": [],
+        "xpath": "//div[@id='order-step-1']//button[1]"
+      },
+      {
+        "name": "订单下载",
+        "iframes": [],
+        "xpath": "//button[@class='el-button el-button--text el-button--small']//span[contains(text(),'下载')]"
+      },
+      {
+        "name": "订单编号出现标志",
+        "iframes": [],
+        "xpath": "//div[contains(text(),'$')]"
+      },
+      {
+        "name": "再来一单",
+        "iframes": [],
+        "xpath": "(//span[contains(text(),'再来一单')])[1]"
+      },
+      {
+        "name": "重新执行",
+        "iframes": [],
+        "xpath": "(//span[contains(text(),'重新执行')])[1]"
+      }
+    ],
+    "groupName": "下载"
+  },
+  {
+    "groupName": "查询条件",
+    "controls": [
+      {
+        "name": "筛选字段设置",
+        "iframes": [],
+        "xpath": "//div[@class='filter-group-item-title']/div[@title='$']//parent::div[@class='filter-group-item-title']//*[name()='svg'][contains(@class, 'filter')]"
+      },
+      {
+        "name": "筛选字段标题位置",
+        "iframes": [],
+        "xpath": "//div[@class='filter-group-item-title']/div[@title='$']"
+      },
+      {
+        "name": "筛选字段删除",
+        "iframes": [],
+        "xpath": "//div[@class='filter-group-item-title']/div[@title='$']//ancestor::div[@class='filter-group-item']//div[@class='filter-group-item-close pointer']"
+      },
+      {
+        "name": "筛选字段",
+        "iframes": [],
+        "xpath": "//span[contains(@class, 'menu-label-txt')][text()='$']"
+      },
+      {
+        "name": "清单分析模式-数据项",
+        "iframes": [],
+        "xpath": "//div[@class='dragger_row-select']"
+      },
+      {
+        "name": "清单分析模式",
+        "iframes": [],
+        "xpath": "//span[contains(text(),'清单分析模式')]"
+      },
+      {
+        "name": "多维分析模式",
+        "iframes": [],
+        "xpath": "//div[@class='dragger-btm-head-title-le fl']"
+      },
+      {
+        "name": "多维分析模式-行",
+        "iframes": [],
+        "xpath": "//div[@id='form-step-type1']/div[2]/div[1]/div[1]"
+      },
+      {
+        "name": "多维分析模式-列",
+        "iframes": [],
+        "xpath": "//div[@id='form-step-type1']/div[3]/div[1]/div[1]"
+      },
+      {
+        "name": "筛选器",
+        "iframes": [],
+        "xpath": "//div[@class='filter-group scrollbarY_container']"
+      },
+      {
+        "name": "已选匹配",
+        "iframes": [],
+        "xpath": "//div[@class='tab-title activa']"
+      },
+      {
+        "name": "未选匹配",
+        "iframes": [],
+        "xpath": "//div[@class='tab-title']"
+      },
+      {
+        "name": "筛选条件-匹配方式1",
+        "iframes": [],
+        "xpath": "//input[@placeholder='请选择匹配方式']"
+      },
+      {
+        "name": "筛选条件-输入条件",
+        "iframes": [],
+        "xpath": "//div[@class='el-input el-input--small']/input[1]"
+      },
+      {
+        "name": "筛选条件-匹配方式2",
+        "iframes": [],
+        "xpath": "//ul[@class='el-scrollbar__view el-select-dropdown__list']//span[text()='$']/parent::li"
+      },
+      {
+        "name": "筛选条件-新增",
+        "iframes": [],
+        "xpath": "//span[contains(text(),'新增+')]"
+      },
+      {
+        "name": "筛选条件-满足条件1",
+        "iframes": [],
+        "xpath": "//div[@class='number-select2']//input[@placeholder='请选择']"
+      },
+      {
+        "name": "筛选条件-满足条件2",
+        "iframes": [],
+        "xpath": "(//span[contains(text(),'$')])[1]"
+      },
+      {
+        "name": "筛选条件-确定",
+        "iframes": [],
+        "xpath": "//div[@class='field_name-footer']//button[1]"
+      },
+      {
+        "name": "清单分析模式-全选",
+        "iframes": [],
+        "xpath": "//span[@class='el-checkbox__inner']"
+      },
+      {
+        "name": "清单分析模式-行",
+        "iframes": [],
+        "xpath": "//div[@class='dragger_row-select']"
+      },
+      {
+        "name": "度量筛选方式1",
+        "iframes": [],
+        "xpath": "//div[@class='el-form-item is-required el-form-item--medium']//input[@placeholder='请选择']"
+      },
+      {
+        "name": "度量筛选方式2",
+        "iframes": [],
+        "xpath": "//div[@class='el-scrollbar']//span[text()='$']"
+      },
+      {
+        "name": "度量输入最小值",
+        "iframes": [],
+        "xpath": "//input[@placeholder='最小值']"
+      },
+      {
+        "name": "度量最小值包含",
+        "iframes": [],
+        "xpath": "(//span[@class='el-checkbox__label'][contains(text(),'包含')])[1]"
+      },
+      {
+        "name": "度量输入最大值",
+        "iframes": [],
+        "xpath": "//input[@placeholder='最大值']"
+      },
+      {
+        "name": "度量最大值包含",
+        "iframes": [],
+        "xpath": "(//span[@class='el-checkbox__label'][contains(text(),'包含')])[2]"
+      },
+      {
+        "name": "度量输入数值",
+        "iframes": [],
+        "xpath": "//input[@placeholder='请输入数值']"
+      },
+      {
+        "name": "度量-确定",
+        "iframes": [],
+        "xpath": "//div[@class='el-dialog__wrapper pop_up_number']//div[@class='el-dialog__body']//button[1]"
+      },
+      {
+        "name": "日期-时间粒度1",
+        "iframes": [],
+        "xpath": "//div[@class='number-select']//div[@class='el-input el-input--medium el-input--suffix']//input[@placeholder='请选择'][1]"
+      },
+      {
+        "name": "日期-时间粒度2",
+        "iframes": [],
+        "xpath": "//span[text()='$']/parent::li"
+      },
+      {
+        "name": "日期-时间粒度2-日",
+        "iframes": [],
+        "xpath": "//span[text()='日']/parent::li"
+      },
+      {
+        "name": "日期-开始日期-日",
+        "iframes": [],
+        "xpath": "//div[contains(@class,'el-date-editor--date')]//input[@placeholder='请选择开始日期']"
+      },
+      {
+        "name": "日期-结束日期-日",
+        "iframes": [],
+        "xpath": "//div[contains(@class,'el-date-editor--date')]//input[@placeholder='请选择结束日期']"
+      },
+      {
+        "name": "日期-开始日期-月",
+        "iframes": [],
+        "xpath": "//div[contains(@class,'el-date-editor--month')]//input[@placeholder='请选择开始日期']"
+      },
+      {
+        "name": "日期-结束日期-月",
+        "iframes": [],
+        "xpath": "//div[contains(@class,'el-date-editor--month')]//input[@placeholder='请选择结束日期']"
+      },
+      {
+        "name": "日期-开始日期-年",
+        "iframes": [],
+        "xpath": "//div[contains(@class,'el-date-editor--year')]//input[@placeholder='请选择开始日期']"
+      },
+      {
+        "name": "日期-结束日期-年",
+        "iframes": [],
+        "xpath": "//div[contains(@class,'el-date-editor--year')]//input[@placeholder='请选择结束日期']"
+      },
+      {
+        "name": "日期-近七天",
+        "iframes": [],
+        "xpath": "//span[contains(text(),'近七天')]"
+      },
+      {
+        "name": "日期-本月",
+        "iframes": [],
+        "xpath": "//span[contains(text(),'本月')]"
+      },
+      {
+        "name": "日期-近一月",
+        "iframes": "",
+        "xpath": "//span[contains(text(),'近一月')]"
+      },
+      {
+        "name": "日期-本年",
+        "iframes": [],
+        "xpath": "//span[contains(text(),'本年')]"
+      },
+      {
+        "name": "日期-近一年",
+        "iframes": [],
+        "xpath": "//span[contains(text(),'近一年')]"
+      },
+      {
+        "name": "日期-确定",
+        "iframes": [],
+        "xpath": "//div[contains(@class,'el-dialog__wrapper')][not(contains(@style,'none'))]/div[@role='dialog']//span[text()='确定']/parent::button"
+      },
+      {
+        "name": "码值筛选-检索输入",
+        "iframes": [],
+        "xpath": "//div[@class='search_input el-input el-input--small el-input--prefix']/input[1]"
+      },
+      {
+        "name": "码值筛选-输入搜索",
+        "iframes": [],
+        "xpath": "//div[@class='flex_left-search']/button[1]"
+      },
+      {
+        "name": "码值筛选-搜索结果",
+        "iframes": [],
+        "xpath": "//span[contains(@class, 'el-tooltip text_omil item')][contains(text(),'$')]"
+      },
+      {
+        "name": "码值筛选-确定",
+        "iframes": [],
+        "xpath": "//div[contains(@class,'el-dialog__wrapper')][not(contains(@style,'none'))]/div[@role='dialog']//span[text()='确定']/parent::button"
+      },
+      {
+        "name": "加载中",
+        "iframes": [],
+        "xpath": "//div[@class='el-loading-spinner']"
+      },
+      {
+        "name": "加载中2",
+        "iframes": [],
+        "xpath": "//div[contains(@class, 'el-loading-mask')]"
+      },
+      {
+        "name": "条件公式",
+        "iframes": [],
+        "xpath": "//div[text()=' 条件公式 ']"
+      },
+      {
+        "name": "设置按钮",
+        "iframes": [],
+        "xpath": "//div[@title='$']//parent::div//*[name()='svg']"
+      },
+      {
+        "name": "多维行列下拉-行",
+        "iframes": [],
+        "xpath": "//span[text()='行']//parent::div//div[@class='el-dropdown']//span[text()='$']//*[name()='svg']//parent::span/i"
+      },
+      {
+        "name": "多维行列下拉-列",
+        "iframes": [],
+        "xpath": "//span[text()='列']//parent::div//div[@class='el-dropdown']//span[text()='$']//*[name()='svg']//parent::span/i"
+      },
+      {
+        "name": "多维行列下拉-筛选条件",
+        "iframes": [],
+        "xpath": "//ul[@class='el-dropdown-menu el-popper el-dropdown-menu--medium'][not(contains(@style,'none'))]//li[text()='$']"
+      },
+      {
+        "name": "多维行列下拉-筛选条件-排序",
+        "iframes": [],
+        "xpath": "//ul[@class='el-dropdown-menu el-popper el-dropdown-menu--medium'][not(contains(@style,'none'))]//div[@class='el-checkbox-group']//span[text()='$']//parent::label//span[@class='el-checkbox__input']"
+      }
+    ]
+  }
+]

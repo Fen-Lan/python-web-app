@@ -1,0 +1,581 @@
+{
+  "source_compare": [
+    {
+      "label": "等于",
+      "value": "eq"
+    },
+    {
+      "label": "不等于",
+      "value": "ne"
+    },
+    {
+      "label": "包含",
+      "value": "in"
+    },
+    {
+      "label": "不包含",
+      "value": "ni"
+    },
+    {
+      "label": "大于",
+      "value": "gt"
+    },
+    {
+      "label": "大于等于",
+      "value": "gte"
+    },
+    {
+      "label": "小于",
+      "value": "lt"
+    },
+    {
+      "label": "小于等于",
+      "value": "lte"
+    }
+  ],
+  "source_operation": [
+    {
+      "label": "单击",
+      "value": "left"
+    },
+    {
+      "label": "右击",
+      "value": "right"
+    }
+  ],
+  "source_match_position": [
+    {
+      "label": "页面标题",
+      "value": "title"
+    },
+    {
+      "label": "网址",
+      "value": "url"
+    }
+  ],
+  "source_match_pattern": [
+    {
+      "label": "相同",
+      "value": "equal"
+    },
+    {
+      "label": "包括",
+      "value": "contain"
+    }
+  ],
+  "source_bool": [
+    {
+      "label": "是",
+      "value": "True"
+    },
+    {
+      "label": "否",
+      "value": "False"
+    }
+  ],
+  "source_insert_area": [
+    {
+      "label": "行",
+      "value": "row"
+    },
+    {
+      "label": "列",
+      "value": "col"
+    },
+    {
+      "label": "嵌套行",
+      "value": "mulRow"
+    },
+    {
+      "label": "嵌套列",
+      "value": "mulCol"
+    },
+    {
+      "label": "在上下文中过滤",
+      "value": "context"
+    },
+    {
+      "label": "替换行",
+      "value": "repRow"
+    },
+    {
+      "label": "替换列",
+      "value": "repCol"
+    },
+    {
+      "label": "默认度量",
+      "value": "measure"
+    }
+  ],
+  "source_select_option": [
+    {
+      "label": "按下ctrl选择",
+      "value": "ctrl"
+    },
+    {
+      "label": "按下shift选择",
+      "value": "shift"
+    }
+  ],
+  "source_select_status": [
+    {
+      "label": "全部选项",
+      "value": "all"
+    },
+    {
+      "label": "已选选项",
+      "value": "selected"
+    }
+  ],
+  "source_analyze_mode": [
+    {
+      "label": "清单分析模式",
+      "value": "清单分析模式"
+    },
+    {
+      "label": "多维分析模式",
+      "value": "多维分析模式"
+    }
+  ],
+  "source_fast_date_type": [
+    {
+      "label": "近七天",
+      "value": "近七天"
+    },
+    {
+      "label": "本月",
+      "value": "本月"
+    },
+    {
+      "label": "近一月",
+      "value": "近一月"
+    },
+    {
+      "label": "本年",
+      "value": "本年"
+    },
+    {
+      "label": "近一年",
+      "value": "近一年"
+    }
+  ],
+  "source_date_select_dimension": [
+    {
+      "label": "日",
+      "value": "日"
+    },
+    {
+      "label": "月",
+      "value": "月"
+    },
+    {
+      "label": "年",
+      "value": "年"
+    }
+  ],
+  "source_scp_insert_area": [
+    {
+      "label": "筛选器",
+      "value": "筛选器"
+    },
+    {
+      "label": "行",
+      "value": "行"
+    },
+    {
+      "label": "列",
+      "value": "列"
+    },
+    {
+      "label": "数据项",
+      "value": "数据项"
+    }
+  ],
+  "source_scp_condition": [
+    {
+      "label": "满足任意条件",
+      "value": "满足任意条件"
+    },
+    {
+      "label": "满足全部条件",
+      "value": "满足全部条件"
+    }
+  ],
+  "source_run_mode": [
+    {
+      "label": "前台显示运行",
+      "value": "true"
+    },
+    {
+      "label": "后台静默运行",
+      "value": "false"
+    }
+  ],
+  "source_filter_operator": [
+    {
+      "label": "大于",
+      "value": ">"
+    },
+    {
+      "label": "小于",
+      "value": "<"
+    },
+    {
+      "label": "大于等于",
+      "value": ">="
+    },
+    {
+      "label": "小于等于",
+      "value": "<="
+    },
+    {
+      "label": "等于",
+      "value": "=="
+    },
+    {
+      "label": "不等于",
+      "value": "!="
+    },
+    {
+      "label": "包含",
+      "value": "contains"
+    }
+  ],
+  "source_date_value": [
+    {
+      "label": "今天",
+      "value": "今天"
+    },
+    {
+      "label": "昨天",
+      "value": "昨天"
+    },
+    {
+      "label": "上月首日",
+      "value": "上月首日"
+    },
+    {
+      "label": "上月末日",
+      "value": "上月末日"
+    },
+    {
+      "label": "上月今天",
+      "value": "上月今天"
+    },
+    {
+      "label": "本月首日",
+      "value": "本月首日"
+    },
+    {
+      "label": "去年今天",
+      "value": "去年今天"
+    },
+    {
+      "label": "去年昨天",
+      "value": "去年昨天"
+    },
+    {
+      "label": "上周一",
+      "value": "上周一"
+    },
+    {
+      "label": "上周五",
+      "value": "上周五"
+    },
+    {
+      "label": "上周日",
+      "value": "上周日"
+    },
+    {
+      "label": "本周一",
+      "value": "本周一"
+    }
+  ],
+  "source_date_fmt": [
+    {
+      "label": "2024-01-01",
+      "value": "2024-01-01"
+    },
+    {
+      "label": "2024-1-1",
+      "value": "2024-1-1"
+    },
+    {
+      "label": "2024年01月01日",
+      "value": "2024年01月01日"
+    },
+    {
+      "label": "2024年1月1日",
+      "value": "2024年1月1日"
+    },
+    {
+      "label": "2024Q1",
+      "value": "2024Q1"
+    },
+    {
+      "label": "2024年 1 季",
+      "value": "2024年 1 季"
+    },
+    {
+      "label": "2024年 1季",
+      "value": "2024年 1季"
+    },
+    {
+      "label": "2024 年 1季",
+      "value": "2024 年 1季"
+    },
+    {
+      "label": "2024/1月",
+      "value": "2024/1月"
+    },
+    {
+      "label": "2024年01月",
+      "value": "2024年01月"
+    },
+    {
+      "label": "2024年1月",
+      "value": "2024年1月"
+    },
+    {
+        "label": "2024001",
+        "value": "2024001"
+    },
+    {
+      "label": "2024-01",
+      "value": "2024-01"
+    },
+    {
+      "label": "202401",
+      "value": "202401"
+    },
+    {
+      "label": "2024",
+      "value": "2024"
+    },
+    {
+      "label": "2024年",
+      "value": "2024年"
+    },
+    {
+      "label": "1月",
+      "value": "1月"
+    },
+    {
+      "label": "01月",
+      "value": "01月"
+    }
+  ],
+  "source_calculate_type": [
+    {
+      "label": "总计",
+      "value": "总计"
+    },
+    {
+      "label": "平均值",
+      "value": "平均值"
+    },
+    {
+      "label": "最大值",
+      "value": "最大值"
+    },
+    {
+      "label": "最小值",
+      "value": "最小值"
+    }
+  ],
+  "source_reference_day": [
+    {
+      "label": "今天",
+      "value": "今天"
+      },
+    {
+      "label": "昨天",
+      "value": "昨天"
+    }
+  ],
+  "source_date_direction": [
+    {
+      "label": "过去",
+      "value": "过去"
+    },
+    {
+      "label": "未来",
+      "value": "未来"
+    }
+  ],
+  "source_date_offset": [
+    {
+        "label": "无偏移",
+        "value": "无偏移"
+    },{
+        "label": "一天",
+        "value": "一天"
+    },
+    {
+        "label": "一个月",
+        "value": "一个月"
+    },
+    {
+        "label": "一年",
+        "value": "一年"
+    },
+    {
+        "label": "一季度",
+        "value": "一季度"
+    },
+    {
+        "label": "一周",
+        "value": "一周"
+    },
+    {
+        "label": "X天",
+        "value": "X天"
+    },
+    {
+        "label": "X月",
+        "value": "X月"
+    },
+    {
+        "label": "X年",
+        "value": "X年"
+    }
+  ],
+  "source_date_day": [
+    {
+      "label": "当天",
+      "value": "当天"
+    },
+    {
+      "label": "周一",
+      "value": "周一"
+    },
+    {
+      "label": "周五",
+      "value": "周五"
+    },
+    {
+      "label": "周六",
+      "value": "周六"
+    },
+    {
+      "label": "周日",
+      "value": "周日"
+    },
+    {
+      "label": "月初",
+      "value": "月初"
+    },
+    {
+      "label": "月末",
+      "value": "月末"
+    },
+    {
+      "label": "年初",
+      "value": "年初"
+    },
+    {
+      "label": "年末",
+      "value": "年末"
+    },
+    {
+      "label": "季度初",
+      "value": "季度初"
+    },
+    {
+      "label": "季度末",
+      "value": "季度末"
+    }
+  ],
+  "source_year_fmt": [
+    {
+      "label": "2024",
+      "value": "2024"
+    },
+    {
+      "label": "2024年",
+      "value": "2024年"
+    }
+  ],
+  "source_quarter_fmt": [
+    {
+      "label": "2024Q1",
+      "value": "2024Q1"
+    },
+    {
+      "label": "2024年 1 季",
+      "value": "2024年 1 季"
+    },
+    {
+      "label": "2024年 1季",
+      "value": "2024年 1季"
+    },
+    {
+      "label": "2024 年 1季",
+      "value": "2024 年 1季"
+    }
+  ],
+  "source_month_fmt": [
+    {
+      "label": "2024/1月",
+      "value": "2024/1月"
+    },
+    {
+      "label": "2024年01月",
+      "value": "2024年01月"
+    },
+    {
+      "label": "2024年1月",
+      "value": "2024年1月"
+    },
+    {
+        "label": "2024001",
+        "value": "2024001"
+    },
+    {
+      "label": "2024-01",
+      "value": "2024-01"
+    },
+    {
+      "label": "202401",
+      "value": "202401"
+    }
+  ],
+  "source_day_fmt": [
+    {
+      "label": "2024-01-01",
+      "value": "2024-01-01"
+    },
+    {
+      "label": "2024-1-1",
+      "value": "2024-1-1"
+    },
+    {
+      "label": "2024年01月01日",
+      "value": "2024年01月01日"
+    },
+    {
+      "label": "2024年1月1日",
+      "value": "2024年1月1日"
+    }
+  ],
+  "source_yearOnyear_quarter_type": [
+    {
+      "label": "年累计",
+      "value": "年累计"
+    },
+    {
+      "label": "当季",
+      "value": "当季"
+    }
+  ],
+  "source_yearOnyear_month_type": [
+    {
+      "label": "年累计",
+      "value": "年累计"
+    },
+    {
+      "label": "当月",
+      "value": "当月"
+    }
+  ]
+}
